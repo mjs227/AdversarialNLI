@@ -43,10 +43,7 @@ def decap_first_w(s):
 
 
 def get_neg_fn(fn_type):
-    if fn_type == 'nt':
-        trigger_phrase = 'it is not true that '
-    elif fn_type == 'f':
-        trigger_phrase = 'it is false that '
+    trigger_phrase = f'it is {"false" if fn_type == "f" else "not true"} that '
 
     def neg_(s, n=1):
         trigger = trigger_phrase * n
