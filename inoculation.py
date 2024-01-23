@@ -83,7 +83,7 @@ for hf_model in misc_tools.HF_MODEL_LIST:
     print(f'Initial dev-set accuracy: {prev_best_acc}')
 
     init_adv_res, init_adv_acc = misc_tools.eval_performance(pipe, adv_set, batch_size=EVAL_BATCH_SIZE)
-    print(f'Initial adversarial accuracy: {init_adv_acc}')
+    print(f'Initial challenge set accuracy: {init_adv_acc}')
 
     while patience_cnt < 5:
         print()
@@ -140,7 +140,7 @@ for hf_model in misc_tools.HF_MODEL_LIST:
     inoc_adv_res, inoc_adv_acc = misc_tools.eval_performance(pipe, adv_set, batch_size=EVAL_BATCH_SIZE)
     model_save_name = hf_model.replace('/', '_')
 
-    print(f'Inoculated adversarial accuracy: {inoc_adv_acc}')
+    print(f'Inoculated challenge set accuracy: {inoc_adv_acc}')
 
     with open(f'{FILEPATH}depth_{NUM_NEG}_inoc/inoculation_res/{model_save_name}.json', 'w') as f:
         json.dump({
