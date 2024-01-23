@@ -47,8 +47,6 @@ def get_neg_fn(fn_type):
         trigger_phrase = 'it is not true that '
     elif fn_type == 'f':
         trigger_phrase = 'it is false that '
-    else:
-        raise NotImplementedError
 
     def neg_(s, n=1):
         trigger = trigger_phrase * n
